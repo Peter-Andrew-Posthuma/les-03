@@ -1,6 +1,6 @@
 # IAC-Herkansing
 
-In deze repository staat de code voor het automatisch opzetten van een Linux VM voor Ansible Galaxy. verder in dit document staat aangegeven hoe de code gebruikt kan worden om stap voor stap de opdracht uit te voeren. De code in deze repository staat ook in de eindelijk-iac repository omdat de opdracht niet super duidelijk is waarom dit niet gewoon in de hoofdrepository kon staan van het iac project.
+In deze repository staat de code voor het automatisch opzetten van een Linux VM voor Ansible Galaxy. verder in dit document staat aangegeven hoe de code gebruikt kan worden om stap voor stap de opdracht uit te voeren. De code in deze repository staat ook in de eindelijk-iac repository omdat de opdracht niet super duidelijk is waarom dit niet gewoon in de hoofdrepository kon staan van het iac project
 
 ## Inhoudsopgave
 - Installatie
