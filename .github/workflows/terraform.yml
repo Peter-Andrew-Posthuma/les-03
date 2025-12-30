@@ -1,0 +1,33 @@
+name: Terraform CI
+
+on:
+  push:
+    paths:
+      - "terraform/**"
+
+jobs:
+  terraform:
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        working-directory: terraform
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform fmt (best practices)
+        run: terraform fmt -check -recursive
+
+      - name: Terraform validate
+        run: terraform validate
+
+      - name: Terraform plan
+        run: terraform plan
+
+      - name: Terraform apply
+        run: terraform apply -auto-approve
