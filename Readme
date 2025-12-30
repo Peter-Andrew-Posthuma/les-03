@@ -2,6 +2,9 @@
 
 In deze repository staat de code voor het automatisch opzetten van een Linux VM voor Ansible Galaxy. verder in dit document staat aangegeven hoe de code gebruikt kan worden om stap voor stap de opdracht uit te voeren. De code in deze repository staat ook in de eindelijk-iac repository omdat de opdracht niet super duidelijk is waarom dit niet gewoon in de hoofdrepository kon staan van het iac project.
 
+## Disclaimer
+de informatie in de verschillende branches is een uitwerking van een andere opdracht. Merge deze onderdelen niet samen omdat de merge onderdelen met dezelfde naam mogelijk vervangt indien de merge niet goed is ingesteld.
+
 ## Inhoudsopgave
 - Installatie
 - Gebruik
@@ -19,7 +22,14 @@ In deze repository staat de code voor het automatisch opzetten van een Linux VM 
 4. profit
 
 ## Installatie VM deployment
-
+Voor de installatie van de VM wordt gebruik gemaakt van de informatie uit de test branch.
+0. Deze stappen zijn gebasseerd op het feit dat de opdrachten van voorgaande weken zijn uitgevoerd
+1. Clone/pull de test branch naar je WSL omgeving met ansible
+2. Open de Locatie ansible
+3. Gebruik: "nano terraform/terraform.tvars" om de file aan te passen
+4. Vervang de ESXI informatie naar de informatie die voor jouw betreffend is en voeg je eigen public key toe die je hebt aangemaakt op de WSL.
+5. Vervang mogelijk instellingen in terraform/main.tf voor het uitbreiden of verkleinen van de VM die gecreerd moet worden.
+6. Nadat al deze stappen zijn gezet gebruik het commando: "ansible-playbook playbooks/03_conditionals.yml" als alles klopt zou de VM nu moeten worden aangemaakt.
 
 ## Gebruik
 Het aantonen van mijn uitgevoerde opdrachten voor IAC
