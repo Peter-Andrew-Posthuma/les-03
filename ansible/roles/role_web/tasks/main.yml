@@ -1,0 +1,24 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/role_web/
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: true
+  become: true
+
+- name: Configure nginx to listen on {{ nginx_port }}
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/default
+  notify: restart nginx
+  become: true
+
+- name: Ensure nginx is running
+  service:
+    name: nginx
+    state: started
+    enabled: true
+  become: true
+

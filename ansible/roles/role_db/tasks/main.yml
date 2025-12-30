@@ -1,0 +1,31 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/role_db
+- name: Install Python MySQL dependency
+  become: true
+  apt:
+    name: python3-pymysql
+    state: present
+    update_cache: true
+
+- name: Install MariaDB
+  apt:
+    name: mariadb-server
+    state: present
+    update_cache: true
+  become: true
+
+- name: Ensure MariaDB is running
+  service:
+    name: mariadb
+    state: started
+    enabled: true
+  become: true
+
+- name: Create database {{ db_name }}
+  become: true
+  community.mysql.mysql_db:
+    name: "{{ db_name }}"
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+
