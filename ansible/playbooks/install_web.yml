@@ -1,0 +1,9 @@
+- name: Install webserver
+  hosts: all
+  become: true
+  tasks:
+    - name: Install apache2
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+        update_cache: true

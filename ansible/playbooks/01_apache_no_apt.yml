@@ -1,0 +1,20 @@
+---
+- name: Install apache without apt module (intentional)
+  hosts: app
+  become: true
+
+  tasks:
+    - name: Install apache2 using shell (NOT apt module)
+      shell: |
+        apt-get update
+        apt-get install -y apache2
+      register: apache_install
+      changed_when: "'Setting up apache2' in apache_install.stdout"
+
+    - name: Show apache install output
+      debug:
+        var: apache_install.stdout
+
+    - name: Intentional failing task (this must fail)
+      command: /bin/false
+
