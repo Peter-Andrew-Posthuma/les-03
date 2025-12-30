@@ -1,0 +1,34 @@
+---
+- name: Variables assignment lab
+  hosts: app
+  become: true
+
+  vars:
+    motd_message: "Welkom bij het lab"
+
+  tasks:
+    - name: Set MOTD
+      copy:
+        content: "{{ motd_message }}\n"
+        dest: /etc/motd
+
+    - name: Create app config
+      copy:
+        content: "Application = {{ app_name }}\n"
+        dest: /etc/app.conf
+
+    - name: Get kernel version
+      command: uname -r
+      register: kernel_version
+      changed_when: false
+
+    - name: Save kernel version
+      copy:
+        content: "{{ kernel_version.stdout }}\n"
+        dest: /tmp/kernel.txt
+
+    - name: Save distribution info
+      copy:
+        content: "{{ ansible_distribution }}\n"
+        dest: /tmp/facts.txt
+
