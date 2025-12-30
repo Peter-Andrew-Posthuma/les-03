@@ -1,0 +1,36 @@
+---
+- name: Conditional tasks assignment
+  hosts: all
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Task only on Ubuntu
+      debug:
+        msg: "Dit is een Ubuntu-systeem"
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Task only on RedHat
+      debug:
+        msg: "Dit is een Red Hat-systeem"
+      when: ansible_facts['distribution'] == "RedHat"
+
+    - name: Check if /etc/hosts exists
+      stat:
+        path: /etc/hosts
+      register: hosts_file
+
+    - name: Fail if /etc/hosts does not exist
+      fail:
+        msg: "/etc/hosts bestaat niet!"
+      when: not hosts_file.stat.exists
+
+    - name: Echo hallo without change
+      command: echo hallo
+      register: echo_result
+      changed_when: false
+
+    - name: Show echo output
+      debug:
+       msg: "{{ echo_result.stdout }}"
+
