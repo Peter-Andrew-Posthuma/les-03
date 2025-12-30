@@ -1,0 +1,52 @@
+# IAC-Herkansing
+
+In deze repository staat de code voor het automatisch opzetten van een Linux VM voor Ansible Galaxy. verder in dit document staat aangegeven hoe de code gebruikt kan worden om stap voor stap de opdracht uit te voeren. De code in deze repository staat ook in de eindelijk-iac repository omdat de opdracht niet super duidelijk is waarom dit niet gewoon in de hoofdrepository kon staan van het iac project.
+
+## Inhoudsopgave
+- Installatie
+- Gebruik
+- Ontwikkelen
+- Testen
+- Configuratie
+- Roadmap
+- Bijdragen (Contributing)
+- Licentie
+
+## Installatie Repository
+1. Pull de repository naar een WSL omgeving met ansible
+2. Open de locatie in VSC om aanpassingen te maken
+3. Voer de scripts uit op de WSL en upload bepaalde opdrachten (week 3 bijv) naar betreffende servers
+4. profit
+
+## Installatie VM deployment
+
+
+## Gebruik
+Het aantonen van mijn uitgevoerde opdrachten voor IAC
+
+## Ontwikkelen
+- Vereisten: <WSL/Ansible/Terraform/etc.>
+- Scripts: `npm run dev`, `make`, ...
+- Richtlijnen: code style, branching (bijv. GitFlow), commitconventies, etc.
+
+## Testen
+- Hoe tests draaien: `npm test` / `pytest` / `dotnet test` …
+- (Optioneel) Coverage, rapportage, testdata.
+
+## Configuratie
+- Omgevingsvariabelen ( `.env.example` )
+- Secrets/vertrouwelijke info **nooit committen**.
+
+## Roadmap
+- [ ] Week 1 
+- [ ] Week 2
+- [ ] Week 3
+- [ ] Week 4
+- [ ] Week 5
+- [ ] Week 6
+
+## Bijdragen
+Zie [`CONTRIBUTING.md`](CONTRIBUTING.md) voor richtlijnen.
+
+## Licentie
+Dit project is gelicentieerd onder <Apache2>. Zie [`LICENSE`](LICENSE).
