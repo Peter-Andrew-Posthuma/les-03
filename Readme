@@ -48,3 +48,19 @@ Zie [`CONTRIBUTING.md`](CONTRIBUTING.md) voor richtlijnen.
 
 ## Licentie
 Dit project is gelicentieerd onder <Apache2>. Zie [`LICENSE`](LICENSE).
+
+## Verschil tussen import_tasks en include_tasks
+
+import_tasks wordt tijdens parse-time door Ansible geladen.
+Dit betekent dat alle taken al bekend zijn voordat je het playbook uitgevoerd. Dit is handig voor vaste taken die je elke x zou willen uitvoeren.
+
+include_tasks wordt tijdens runtime geladen.
+Dit maakt het mogelijk om taken uit te voeren op basis van
+variabelen, facts of loops. Dit is flexibeler maar minder voorspelbaar.  
+
+## Waarom roles gebruiken
+
+Roles zorgen voor een scheiding van verantwoordelijkheden.
+Ze maken configuratie herbruikbaar, overzichtelijk en schaalbaar.
+Een role kan in meerdere playbooks of projecten gebruikt
+worden zonder code te dupliceren. dit is omdat het de benodigde informatie overneemd van het project of playbook terwijl de informatie binnen de role hetzelfde blijft.
