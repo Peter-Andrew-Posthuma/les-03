@@ -1,0 +1,14 @@
+- name: Site playbook
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Import static tasks
+      import_tasks: playbooks/tasks_static.yml
+
+    - name: Include dynamic tasks
+      include_tasks: playbooks/tasks_dynamic.yml
+
+  roles:
+    - role_firewall
+

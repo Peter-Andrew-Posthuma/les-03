@@ -1,0 +1,4 @@
+- name: Static task (import_tasks)
+  debug:
+    msg: "Deze taak is statisch geïmporteerd"
+

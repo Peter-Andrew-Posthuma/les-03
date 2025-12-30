@@ -1,0 +1,24 @@
+---
+- name: Install ufw
+  ansible.builtin.apt:
+    name: ufw
+    state: present
+    update_cache: true
+
+- name: Allow SSH (critical – prevent lockout)
+  ansible.builtin.ufw:
+    rule: allow
+    port: 22
+    proto: tcp
+
+- name: Allow port 8080
+  ansible.builtin.ufw:
+    rule: allow
+    port: 8080
+    proto: tcp
+
+- name: Enable UFW with default deny
+  ansible.builtin.ufw:
+    state: enabled
+    policy: deny
+

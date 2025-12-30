@@ -1,0 +1,4 @@
+- name: Dynamic task (include_tasks)
+  debug:
+    msg: "Deze taak is dynamisch ingeladen"
+
